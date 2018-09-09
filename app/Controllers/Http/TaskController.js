@@ -11,11 +11,10 @@ class TaskController {
    * GET tasks
    */
   async index ({ params }) {
-    const tasks = await TaskController.query()
+    const tasks = await Task.query()
       .where('project_id', params.projects_id)
       .with('user')
       .fetch()
-
     return tasks
   }
 
